@@ -10,7 +10,7 @@ export default function Layout({
   return (
     <div className="wrapper">
       <Head>
-        <title>Home Staff</title>
+        <title>Always Stylish</title>
       </Head>
       <Header />
       <main>
