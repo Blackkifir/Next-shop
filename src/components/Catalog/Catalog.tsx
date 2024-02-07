@@ -12,14 +12,16 @@ export default function Catalog({
     <div className={styles.catalog}>
       <Image
         src={categoryImage}
-        width={150}
-        height={150}
+        width={300}
+        height={300}
         alt="not-found-image"
       />
-      <h2 className={styles.catalog_title}>{title}</h2>
-      <p className={styles.catalog_name}>{categoryName}</p>
-      <b className={styles.catalog_price}>{`${price}.00$`}</b>
-      <button type="button" className={styles.catalog_addToCart}>+</button>
+      <div className={styles.catalog_blockInfo}>
+        <h2 className={styles.catalog_title}>{title}</h2>
+        <p className={styles.catalog_name}>{categoryName}</p>
+        <b className={styles.catalog_price}>{`${price}.00$`}</b>
+        <button type="button" className={styles.catalog_addToCart}>+</button>
+      </div>
     </div>
   );
 }

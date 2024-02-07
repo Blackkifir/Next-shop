@@ -7,23 +7,23 @@ export default function Home({ items }: { items: IPropsItems[] }) {
   return (
     <div className={styles.homeContainer}>
       {items.length !== 0
-        && items.map((obj) => (
-          <Catalog
-            key={obj.id}
-            id={obj.id}
-            title={obj.title}
-            price={obj.price}
-            categoryName={obj.category.name}
-            categoryImage={obj.category.image}
-          />
-        ))}
+          && items.map((obj) => (
+            <Catalog
+              key={obj.id}
+              id={obj.id}
+              title={obj.title}
+              price={obj.price}
+              categoryName={obj.category.name}
+              categoryImage={obj.category.image}
+            />
+          ))}
     </div>
   );
 }
 
 export async function getServerSideProps() {
   try {
-    const response = await axios.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=10');
+    const response = await axios.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=15');
     const data = response.data as IPropsItems[];
 
     return {
