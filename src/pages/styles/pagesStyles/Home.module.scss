@@ -4,3 +4,10 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
+
+.homeLoader {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 50px 0px;
+}
