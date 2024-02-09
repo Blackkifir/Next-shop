@@ -17,7 +17,7 @@ export default function Catalog({
         alt="not-found-image"
       />
       <div className={styles.catalog_blockInfo}>
-        <h2 className={styles.catalog_title}>{title}</h2>
+        <h4 className={styles.catalog_title}>{title}</h4>
         <p className={styles.catalog_name}>{categoryName}</p>
         <b className={styles.catalog_price}>{`${price}.00$`}</b>
         <button type="button" className={styles.catalog_addToCart}>+</button>

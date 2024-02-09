@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styles from './Header.module.scss';
+import styles from './HeaderCart.module.scss';
 
-export default function Header() {
+export default function HeaderCart() {
   return (
     <header className={styles.header}>
       <nav className={styles.navigation}>
@@ -12,7 +12,6 @@ export default function Header() {
           <li className={styles.navigation_list_item}><Link href="/">Кабинет</Link></li>
         </ul>
       </nav>
-      <div className={styles.presentation} />
     </header>
   );
 }
