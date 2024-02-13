@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IPropsCatalog } from './interfaces/IPropsCatalogItem';
+import { IPropsCatalog } from './IPropsCatalogItem';
 import styles from './Catalog.module.scss';
 
 export default function Catalog({

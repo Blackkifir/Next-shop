@@ -1,11 +1,11 @@
-.homeContainer {
+.productContainer {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
 }
 
-.homeLoader {
+.productLoader {
   display: grid;
   justify-items: center;
   align-items: center;

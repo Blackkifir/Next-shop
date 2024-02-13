@@ -1,58 +1,33 @@
-import Catalog from '@/components/Catalog/Catalog';
-import { IPropsItems } from '@/redux/slices/interfaces/IPropsItems';
+import Product from '@/components/Product/Product';
+import Navigation from '@/components/Navigation/Navigaton';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Loader from '@/components/Loader/Loader';
-import Header from '@/components/Navigation/Navigaton';
-import styles from './styles/pagesStyles/Home.module.scss';
+import { IPropsAll, IPropsItems } from '@/redux/slices/interfaces/IPropsItems';
 
-export default function Home({
-  items,
-}:
-{ items: IPropsItems[] }) {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    if (items.length === 0) {
-      setIsLoading(true);
-    } else {
-      setIsLoading(false);
-    }
-  }, [items.length]);
-
+export default function Home({ items, isLoading }: IPropsAll) {
   return (
-    <div>
-      <Header />
-      <div className={isLoading ? styles.homeLoader : styles.homeContainer}>
-        {isLoading ? <Loader /> : items.map((obj) => (
-          <Catalog
-            key={obj.id}
-            id={obj.id}
-            title={obj.title}
-            price={obj.price}
-            categoryName={obj.category.name}
-            categoryImage={obj.category.image}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      <Navigation />
+      <main>
+        <Product items={items} isLoading={isLoading} />
+      </main>
+    </>
   );
 }
 
 export async function getServerSideProps() {
   try {
     const response = await axios.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=20');
-    const data = response.data as IPropsItems[];
     return {
       props: {
-        items: data,
+        items: response.data as IPropsItems[],
+        isLoading: false,
       },
     };
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.log(error);
     return {
       props: {
-        items: [],
+        isLoading: true,
       },
     };
   }

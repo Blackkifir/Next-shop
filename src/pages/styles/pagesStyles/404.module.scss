@@ -1,0 +1,21 @@
+@import '../global/variables.scss';
+
+.notFound {
+  @include displayCenter();
+  flex-direction: column;
+  height: 80vh;
+
+  &_oops,
+  &_hereNot {
+    margin-bottom: 10px;
+  }
+
+  &_redirectToHome {
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    color: #FFFFFF;
+    background-color: #ca5252;
+  }
+}
+

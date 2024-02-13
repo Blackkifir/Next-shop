@@ -1,6 +1,7 @@
 export interface IPropsAll {
+  items: IPropsItems[],
   isLoading: boolean,
-  error: Error | null,
+  error?: Error | null,
 }
 
 export interface IPropsItems {

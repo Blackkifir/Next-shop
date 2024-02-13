@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import './styles/global/globals.scss';
-import Footer from '@/components/Footer/Footer';
 import Head from 'next/head';
+import Footer from '@/components/Footer/Footer';
 
 export default function Layout({
   children,
@@ -11,9 +11,7 @@ export default function Layout({
       <Head>
         <title>Always Stylish</title>
       </Head>
-      <main>
-        {children}
-      </main>
+      {children}
       <Footer />
     </div>
   );

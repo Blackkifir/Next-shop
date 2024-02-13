@@ -11,16 +11,6 @@
   &_list {
     @include displayCenter();
     list-style: none;
-     
-    &_cart {
-      transition: all .2s;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
-    &_cart:hover {
-      color: #ca5252;
-    }
 
     &_item:first-child {
       margin-left: 0;
