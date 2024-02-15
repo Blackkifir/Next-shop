@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styles from './HeaderBag.module.scss';
+import styles from './HeaderCart.module.scss';
 
-export default function HeaderBag() {
+export default function HeaderCart() {
   return (
     <header className={styles.header}>
       <nav className={styles.navigation}>

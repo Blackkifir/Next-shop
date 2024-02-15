@@ -1,4 +1,4 @@
-import Product from '@/components/Product/Product';
+import Product from '@/components/ProductCatalog/ProductCatalog';
 import Navigation from '@/components/Navigation/Navigaton';
 import axios from 'axios';
 import { IPropsAll, IPropsItems } from '@/redux/slices/interfaces/IPropsItems';

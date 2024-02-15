@@ -1,4 +1,5 @@
-import HeaderBag from '@/components/HeaderCart/HeaderBag';
+import HeaderBag from '@/components/HeaderCart/HeaderCart';
+import ProductCart from '@/components/ProductCart/ProductCart';
 import Head from 'next/head';
 
 export default function Cart() {
@@ -9,7 +10,7 @@ export default function Cart() {
       </Head>
       <HeaderBag />
       <main>
-        <h1>Hello Cart</h1>
+        <ProductCart />
       </main>
     </>
   );

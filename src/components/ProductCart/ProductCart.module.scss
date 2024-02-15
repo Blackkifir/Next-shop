@@ -1,0 +1,13 @@
+@import '../../pages/styles/global/variables.scss';
+
+.title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cartFlex {
+  @include displayCenter();
+  border: 2px solid $red;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(202, 82, 82, 0.3);
+}

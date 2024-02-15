@@ -3,9 +3,9 @@
 import { IPropsAll } from '@/redux/slices/interfaces/IPropsItems';
 import Loader from '../Loader/Loader';
 import Catalog from '../Catalog/Catalog';
-import styles from './Product.module.scss';
+import styles from './ProductCatalog.module.scss';
 
-export default function Product({ items, isLoading }: IPropsAll) {
+export default function ProductCatalog({ items, isLoading }: IPropsAll) {
   return (
     <div className={isLoading ? styles.productLoader : styles.productContainer}>
       {isLoading ? <Loader /> : items.map((obj) => (
