@@ -1,5 +1,3 @@
-'use client';
-
 import { IPropsAll } from '@/redux/slices/interfaces/IPropsItems';
 import Loader from '../Loader/Loader';
 import Catalog from '../Catalog/Catalog';
