@@ -1,7 +1,7 @@
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import { IPropsAll } from '@/redux/slices/interfaces/IPropsItems';
-import styles from './ProductCart.module.scss';
-import ProductCartItems from '../ProductCartItems/ProductCartItems';
+import styles from './AllCarts.module.scss';
+import CartItem from '../CartItem/CartItem';
 
 export default function ProductCart({ items }: IPropsAll) {
   return (
@@ -14,7 +14,7 @@ export default function ProductCart({ items }: IPropsAll) {
         <div className={styles.cartFlex_block}>
           <div className={styles.cartFlex_items}>
             {items.map((obj) => (
-              <ProductCartItems
+              <CartItem
                 key={obj.id}
                 id={obj.id}
                 title={obj.title}

@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { IPropsCatalog } from './IPropsCatalogItem';
-import styles from './Catalog.module.scss';
+import styles from './CatalogItem.module.scss';
 
-export default function Catalog({
+export default function CatalogItem({
   title,
   price,
   categoryName,

@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import styles from './ProductCartItems.module.scss';
-import { IPropsCatalog } from '../Catalog/IPropsCatalogItem';
+import styles from './CartItem.module.scss';
+import { IPropsCatalog } from '../CatalogItem/IPropsCatalogItem';
 
 export default function ProductCartItems({
   categoryImage,
