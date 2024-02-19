@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IPropsCatalog } from './IPropsCatalogItem';
+import { IPropsCatalog } from './IPropsCatalog';
 import styles from './CatalogItem.module.scss';
 
 export default function CatalogItem({
@@ -7,8 +7,11 @@ export default function CatalogItem({
   price,
   categoryName,
   categoryImage,
+  item,
+  onClickAddCart,
 }: IPropsCatalog) {
   return (
+
     <div className={styles.catalog}>
       <Image
         src={categoryImage}
@@ -20,7 +23,13 @@ export default function CatalogItem({
         <h4 className={styles.catalog_title}>{title}</h4>
         <p className={styles.catalog_name}>{categoryName}</p>
         <b className={styles.catalog_price}>{`${price}.00$`}</b>
-        <button type="button" className={styles.catalog_addToCart}>+</button>
+        <button
+          type="button"
+          className={styles.catalog_addToCart}
+          onClick={() => onClickAddCart(item)}
+        >
+          +
+        </button>
       </div>
     </div>
   );

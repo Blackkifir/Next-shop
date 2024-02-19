@@ -1,19 +1,19 @@
 import Image from 'next/image';
 import styles from './CartItem.module.scss';
-import { IPropsCatalog } from '../CatalogItem/IPropsCatalogItem';
+import { IPropsCatalog } from '../CatalogItem/IPropsCatalog';
 
-export default function ProductCartItems({
+export default function CartItem({
   categoryImage,
   title,
   price,
   categoryName,
 }: IPropsCatalog) {
   return (
-    <div className={styles.cartItems}>
+    <div className={styles.cart}>
       <Image
         src={categoryImage}
-        width={300}
-        height={300}
+        width={250}
+        height={250}
         alt="not-found-image"
       />
       <div className={styles.cart_blockInfo}>

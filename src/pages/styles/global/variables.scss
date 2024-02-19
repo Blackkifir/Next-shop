@@ -13,3 +13,9 @@ $whiteGrey: #f5f5f5;
   justify-content: center;
   align-items: center;
 }
+
+@mixin displayStart() {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

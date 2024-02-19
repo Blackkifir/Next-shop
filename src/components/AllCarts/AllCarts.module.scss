@@ -17,8 +17,9 @@
 }
 
 .cartFlex {
-  @include displayCenter();
+  @include displayStart();
   border: 2px solid $red;
   border-radius: 5px;
+  padding: 30px;
   box-shadow: 0 4px 8px rgba(202, 82, 82, 0.3);
 }

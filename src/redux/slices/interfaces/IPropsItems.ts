@@ -1,5 +1,7 @@
 export interface IPropsAll {
   items: IPropsItems[],
+  cartItems?: IPropsItems[],
+  item?: IPropsItems,
   isLoading: boolean,
   error?: Error | null,
 }
