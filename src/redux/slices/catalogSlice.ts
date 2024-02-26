@@ -14,8 +14,8 @@ const initialState: IPropsAll = {
       name: '',
       image: '',
     },
+    categoryImage: '',
   },
-  cartItems: [],
   isLoading: false,
   error: null,
 };
@@ -24,9 +24,6 @@ const catalogSlice = createSlice({
   name: 'catalog',
   initialState,
   reducers: {
-    setCartItems(state, action: PayloadAction<IPropsItems[]>) {
-      state.cartItems = action.payload;
-    },
     setItems(state, action: PayloadAction<IPropsItems[]>) {
       state.items = action.payload;
     },
@@ -39,7 +36,5 @@ const catalogSlice = createSlice({
   },
 });
 
-export const {
-  setCartItems, setItems, setLoading, setError,
-} = catalogSlice.actions;
+export const { setItems, setLoading, setError } = catalogSlice.actions;
 export default catalogSlice.reducer;

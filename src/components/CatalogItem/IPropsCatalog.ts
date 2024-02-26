@@ -6,15 +6,7 @@ export interface IPropsCatalog {
   price: number,
   categoryName: string,
   categoryImage: string,
-  item: IPropsItems[],
+  item: IPropsItems,
 
-  onClickAddCart: (cart: IPropsItems[]) => void;
-}
-
-export interface IPropsCatalogObjItem {
-  id: number,
-  title: string,
-  price: number,
-  categoryName: string,
-  categoryImage: string,
+  onClickAddCart: (cart: IPropsItems) => void;
 }

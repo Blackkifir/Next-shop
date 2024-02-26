@@ -1,5 +1,5 @@
 import { IPropsAll, IPropsItems } from '@/redux/slices/interfaces/IPropsItems';
-import { setCartItems } from '@/redux/slices/catalogSlice';
+import { setCartItems } from '@/redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import Loader from '../Loader/Loader';
 import CatalogItem from '../CatalogItem/CatalogItem';
@@ -8,9 +8,8 @@ import styles from './AllCatalogs.module.scss';
 export default function AllCatalogs({ items, isLoading }: IPropsAll) {
   const dispatch = useDispatch();
 
-  const onClickAddCart = (cart: IPropsItems[]): void => {
+  const onClickAddCart = (cart: IPropsItems): void => {
     dispatch(setCartItems(cart));
-    console.log(cart);
   };
 
   return (

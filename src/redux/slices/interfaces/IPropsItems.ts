@@ -1,7 +1,5 @@
 export interface IPropsAll {
   items: IPropsItems[],
-  cartItems?: IPropsItems[],
-  item?: IPropsItems,
   isLoading: boolean,
   error?: Error | null,
 }
@@ -12,5 +10,6 @@ export interface IPropsItems {
   price: number,
   description: string,
   images: string[],
+  categoryImage: string;
   category: { id: number, name: string, image: string, }
 }

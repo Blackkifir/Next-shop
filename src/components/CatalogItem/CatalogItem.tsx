@@ -11,7 +11,6 @@ export default function CatalogItem({
   onClickAddCart,
 }: IPropsCatalog) {
   return (
-
     <div className={styles.catalog}>
       <Image
         src={categoryImage}
