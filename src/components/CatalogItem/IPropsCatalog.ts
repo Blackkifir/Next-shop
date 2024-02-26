@@ -7,6 +7,4 @@ export interface IPropsCatalog {
   categoryName: string,
   categoryImage: string,
   item: IPropsItems,
-
-  onClickAddCart: (cart: IPropsItems) => void;
 }

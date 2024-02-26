@@ -4,6 +4,19 @@ import { IPropsCartItems } from './interfaces/IPropsCartItems';
 
 const initialState: IPropsCartItems = {
   cartItems: [],
+  item: {
+    id: 0,
+    title: '',
+    price: 0,
+    description: '',
+    images: [],
+    category: {
+      id: 0,
+      name: '',
+      image: '',
+    },
+    categoryImage: '',
+  },
 };
 
 const cartSlice = createSlice({

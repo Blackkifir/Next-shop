@@ -1,6 +1,7 @@
 export interface IPropsAll {
   items: IPropsItems[],
   isLoading: boolean,
+  isDisable: boolean,
   error?: Error | null,
 }
 

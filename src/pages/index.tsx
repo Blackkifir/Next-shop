@@ -8,7 +8,11 @@ export default function Home({ items, isLoading }: IPropsAll) {
     <>
       <Navigation />
       <main>
-        <AllCatalogs items={items} isLoading={isLoading} />
+        <AllCatalogs
+          items={items}
+          isLoading={isLoading}
+          isDisable={false}
+        />
       </main>
     </>
   );
