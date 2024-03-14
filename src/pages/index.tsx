@@ -1,12 +1,12 @@
 import AllCatalogs from '@/components/AllCatalogs/AllCatalogs';
-import Navigation from '@/components/NavigationHome/NavigatonHome';
+import NavigationHome from '@/components/NavigationHome/NavigatonHome';
 import axios from 'axios';
 import { IPropsAll, IPropsItems } from '@/redux/slices/interfaces/IPropsItems';
 
 export default function Home({ items, isLoading }: IPropsAll) {
   return (
     <>
-      <Navigation />
+      <NavigationHome />
       <main>
         <AllCatalogs
           items={items}

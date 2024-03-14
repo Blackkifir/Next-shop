@@ -17,7 +17,7 @@
 }
 
 .cartFlex {
-  @include displayStart();
+  @include displayBeetwen();
   border: 2px solid $red;
   border-radius: 5px;
   padding: 30px;
