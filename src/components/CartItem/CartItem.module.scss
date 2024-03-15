@@ -1,39 +1,86 @@
 @import '../../pages/styles/global/variables.scss';
 
-.cart {
+.cartItem {
+  @include displayBeetwen();
   margin-bottom: 30px;
+  overflow: hidden;
   border-radius: 10px;
   background-color: $whiteGrey;
-  overflow: hidden;
- 
+
+  &_leftBlock {
+    margin-right: 50px;
+
+    img {
+      transition: all .2s;
+      margin-bottom: 5px;
+      border-radius: 10px 10px 0px 0px;
+    }
+    img:hover {
+      transform: scale(1.05);
+    }
+  }
+
   &_blockInfo {
     display: flex;
     flex-direction: column;
     padding: 5px 10px;
+
+    &_title {
+      margin-bottom: 5px;
+      min-height: 40px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    &_name {
+      margin-bottom: 5px;
+    }
+
+    &_price {
+      color: $green;
+    }
   }
 
-  img {
-    transition: all .2s;
-    margin-bottom: 5px;
-    border-radius: 10px 10px 0px 0px;
+  &_rightBlock {
+    margin-right: 50px;
   }
 
-  img:hover {
-    transform: scale(1.05);
-  }
+  &_quantity {
+    @include displayCenter();
+    flex-direction: column;
 
-  &_title {
-    margin-bottom: 5px;
-    min-height: 40px;
-    font-size: 12px;
-    text-align: center;
-  }
+    &_text {
+      margin-bottom: 10px;
+    }
 
-  &_name {
-    margin-bottom: 5px;
-  }
+    &_details {
+      @include displayCenter();
+      gap: 10px;
+      border: 2px solid $red;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(202, 82, 82, 0.3);
+      background-color: rgb(124, 124, 124);
 
-  &_price {
-    color: $green;
+      &_minus,
+      &_plus {
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+        background-color: rgb(124, 124, 124);
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 20px;
+        color: $whiteGrey;
+      }
+
+      &_counter {
+        border-left: 2px solid $red;
+        border-right: 2px solid $red;
+        padding: 5px 15px;
+        font-size: 20px;
+        line-height: 20px;
+        color: $whiteGrey;
+      }
+    }
   }
 }
