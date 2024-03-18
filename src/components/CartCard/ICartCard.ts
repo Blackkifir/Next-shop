@@ -1,4 +1,4 @@
-export interface IPropsCart {
+export interface ICartCard {
   id: number,
   cartImage: string,
   title: string,

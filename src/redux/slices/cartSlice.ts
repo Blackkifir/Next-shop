@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IPropsItems } from './interfaces/IPropsItems';
-import { IPropsCartItems } from './interfaces/IPropsCartItems';
+import { ICartCards } from './interfaces/ICartCards';
+import { ICard } from './interfaces/ICatalogCards';
 
-const initialState: IPropsCartItems = {
-  cartItems: [],
-  item: {
+const initialState: ICartCards = {
+  cartCards: [],
+  card: {
     id: 0,
     title: '',
     price: 0,
@@ -23,15 +23,15 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    setCartItems(state, action: PayloadAction<IPropsItems>) {
-      if (!state.cartItems) {
-        state.cartItems = [];
+    setCartCards(state, action: PayloadAction<ICard>) {
+      if (!state.cartCards) {
+        state.cartCards = [];
       }
-      state.cartItems.push(action.payload);
+      state.cartCards.push({ ...action.payload });
     },
   },
 });
 
-export const { setCartItems } = cartSlice.actions;
+export const { setCartCards } = cartSlice.actions;
 
 export default cartSlice.reducer;

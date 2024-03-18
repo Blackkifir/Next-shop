@@ -2,24 +2,24 @@ import { BsFillCartCheckFill } from 'react-icons/bs';
 import { useAppSelector } from '@/redux/hooks/actionsHook';
 import { RootState } from '@/redux/store';
 import styles from './AllCarts.module.scss';
-import CartItem from '../CartItem/CartItem';
+import CartCard from '../CartCard/CartCard';
 
 export default function AllCarts() {
-  const cartItems = useAppSelector((state: RootState) => state.cartSlice.cartItems);
+  const { cartCards } = useAppSelector((state: RootState) => state.cartSlice);
 
   return (
-    <div className={styles.cartContainer}>
-      <h1 className={styles.title}>
+    <div className={styles.allCartsContainer}>
+      <h1 className={styles.allCartsTitle}>
         Cart
-        <BsFillCartCheckFill className={styles.cartIcon} />
+        <BsFillCartCheckFill className={styles.allCartsIcon} />
       </h1>
-      <div className={styles.cartFlex}>
+      <div className={styles.allCartsFlex}>
         <div className={styles.cartFlex_block}>
-          <div className={styles.cartFlex_items}>
-            {cartItems.length === 0
+          <div>
+            {cartCards.length === 0
               ? <h1> &#11088; The cart is empty...</h1>
-              : cartItems.map((obj) => (
-                <CartItem
+              : cartCards.map((obj) => (
+                <CartCard
                   key={obj.id}
                   id={obj.id}
                   title={obj.title}

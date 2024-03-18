@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IPropsAll, IPropsItems } from './interfaces/IPropsItems';
+import { ICatalogCards, ICard } from './interfaces/ICatalogCards';
 
-const initialState: IPropsAll = {
+const initialState: ICatalogCards = {
   items: [],
   isLoading: false,
   isDisable: false,
@@ -12,7 +12,7 @@ const catalogSlice = createSlice({
   name: 'catalog',
   initialState,
   reducers: {
-    setItems(state, action: PayloadAction<IPropsItems[]>) {
+    setItems(state, action: PayloadAction<ICard[]>) {
       state.items = action.payload;
     },
     setLoading(state, action: PayloadAction<boolean>) {

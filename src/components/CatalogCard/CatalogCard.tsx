@@ -3,12 +3,12 @@ import { useAppSelector } from '@/redux/hooks/actionsHook';
 import { RootState } from '@/redux/store';
 import { useDispatch } from 'react-redux';
 
-import { IPropsItems } from '@/redux/slices/interfaces/IPropsItems';
-import { setCartItems } from '@/redux/slices/cartSlice';
+import { ICard } from '@/redux/slices/interfaces/ICatalogCards';
+import { setCartCards } from '@/redux/slices/cartSlice';
 import { setDisable } from '@/redux/slices/catalogSlice';
 import { useState } from 'react';
-import styles from './CatalogItem.module.scss';
-import { IPropsCatalog } from './IPropsCatalog';
+import styles from './CatalogCard.module.scss';
+import { ICatalogCard } from './ICatalogCard';
 
 export default function CatalogItem({
   title,
@@ -16,15 +16,16 @@ export default function CatalogItem({
   categoryName,
   categoryImage,
   item,
-}: IPropsCatalog) {
+}: ICatalogCard) {
   const [isCount, setCount] = useState<number>(0);
   const dispatch = useDispatch();
   const isDisable = useAppSelector((state: RootState) => state.catalogSlice.isDisable);
 
-  const onClickAddCart = (cart: IPropsItems): void => {
+  const onClickAddCart = (cart: ICard): void => {
     if (isCount < 1) {
+      console.log(cart);
       setCount(+1);
-      dispatch(setCartItems(cart));
+      dispatch(setCartCards(cart));
     }
 
     if (isCount > 1) {

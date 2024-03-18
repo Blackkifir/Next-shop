@@ -1,22 +1,22 @@
 @import '../../pages/styles/global/variables.scss';
 
-.cartContainer {
+.allCartsContainer {
   margin: 0 auto;
   max-width: 800px;
 }
 
-.title {
+.allCartsTitle {
   margin: 0px 0px 20px 0px;
   text-align: center;
 }
 
-.cartIcon {
+.allCartsIcon {
   margin-left: 20px;
   width: 25px;
   height: 25px;
 }
 
-.cartFlex {
+.allCartsFlex {
   @include displayCenter();
   border: 2px solid $red;
   border-radius: 5px;

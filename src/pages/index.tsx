@@ -1,9 +1,9 @@
 import AllCatalogs from '@/components/AllCatalogs/AllCatalogs';
 import NavigationHome from '@/components/NavigationHome/NavigatonHome';
 import axios from 'axios';
-import { IPropsAll, IPropsItems } from '@/redux/slices/interfaces/IPropsItems';
+import { ICatalogCards, ICard } from '@/redux/slices/interfaces/ICatalogCards';
 
-export default function Home({ items, isLoading }: IPropsAll) {
+export default function Home({ items, isLoading }: ICatalogCards) {
   return (
     <>
       <NavigationHome />
@@ -23,7 +23,7 @@ export async function getServerSideProps() {
     const response = await axios.get(process.env.NEXT_PUBLIC_API_URL as string);
     return {
       props: {
-        items: response.data as IPropsItems[],
+        items: response.data as ICard[],
         isLoading: false,
       },
     };
