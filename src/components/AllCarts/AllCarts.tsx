@@ -1,11 +1,19 @@
 import { BsFillCartCheckFill } from 'react-icons/bs';
+import { FaWindowClose } from 'react-icons/fa';
 import { useAppSelector } from '@/redux/hooks/actionsHook';
 import { RootState } from '@/redux/store';
+import { useDispatch } from 'react-redux';
+import { setClearAllCart } from '@/redux/slices/cartSlice';
 import styles from './AllCarts.module.scss';
 import CartCard from '../CartCard/CartCard';
 
 export default function AllCarts() {
+  const dispatch = useDispatch();
   const { cartCards } = useAppSelector((state: RootState) => state.cartSlice);
+
+  const onClickClearAllCart = () => {
+    dispatch(setClearAllCart());
+  };
 
   return (
     <div className={styles.allCartsContainer}>
@@ -30,6 +38,14 @@ export default function AllCarts() {
               ))}
           </div>
         </div>
+        <button
+          onClick={() => onClickClearAllCart()}
+          className={styles.allCartsClearBtn}
+          type="button"
+          aria-label="Clear Cart"
+        >
+          <FaWindowClose className={styles.allCartsClearBtn_icon} />
+        </button>
       </div>
     </div>
   );
