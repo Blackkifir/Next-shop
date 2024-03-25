@@ -6,8 +6,10 @@ import { ICartCard } from './ICartCard';
 export default function CartCard({
   title,
   price,
+  card,
   cartName,
   cartImage,
+  onClickDeleteCartCards,
 }: ICartCard) {
   const [isQuantity, setQuantity] = useState<number>(1);
 
@@ -25,6 +27,13 @@ export default function CartCard({
 
   return (
     <div className={styles.cartCard}>
+      <button
+        onClick={() => onClickDeleteCartCards(card)}
+        type="button"
+        className={styles.cartCard_btnDelete}
+      >
+        Delete
+      </button>
       <div className={styles.cartCard_leftBlock}>
         <Image
           src={cartImage}

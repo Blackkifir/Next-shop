@@ -3,7 +3,8 @@ import { FaWindowClose } from 'react-icons/fa';
 import { useAppSelector } from '@/redux/hooks/actionsHook';
 import { RootState } from '@/redux/store';
 import { useDispatch } from 'react-redux';
-import { setClearAllCart } from '@/redux/slices/cartSlice';
+import { setClearAllCart, setDeleteCard } from '@/redux/slices/cartSlice';
+import { ICard } from '@/redux/slices/interfaces/ICatalogCards';
 import styles from './AllCarts.module.scss';
 import CartCard from '../CartCard/CartCard';
 
@@ -13,6 +14,10 @@ export default function AllCarts() {
 
   const onClickClearAllCart = () => {
     dispatch(setClearAllCart());
+  };
+
+  const onClickDeleteCartCards = (basket: ICard) => {
+    dispatch(setDeleteCard(basket.id));
   };
 
   return (
@@ -32,15 +37,19 @@ export default function AllCarts() {
                   id={obj.id}
                   title={obj.title}
                   price={obj.price}
+                  card={obj}
                   cartName={obj.category.name}
                   cartImage={obj.category.image}
+                  onClickDeleteCartCards={onClickDeleteCartCards}
                 />
               ))}
           </div>
         </div>
         <button
           onClick={() => onClickClearAllCart()}
-          className={styles.allCartsClearBtn}
+          className={cartCards.length === 0
+            ? styles.allCartsClearBtnHidden
+            : styles.allCartsClearBtn}
           type="button"
           aria-label="Clear Cart"
         >
