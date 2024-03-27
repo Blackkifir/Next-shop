@@ -4,19 +4,6 @@ import { ICard } from './interfaces/ICatalogCards';
 
 const initialState: ICartCards = {
   cartCards: [],
-  card: {
-    id: 0,
-    title: '',
-    price: 0,
-    description: '',
-    images: [],
-    category: {
-      id: 0,
-      name: '',
-      image: '',
-    },
-    categoryImage: '',
-  },
 };
 
 const cartSlice = createSlice({
@@ -35,9 +22,29 @@ const cartSlice = createSlice({
     setDeleteCard(state, action: PayloadAction<number>) {
       state.cartCards = state.cartCards.filter((card) => card.id !== action.payload);
     },
+    setQuantityMinus(state, action: PayloadAction<number>) {
+      const cardIndex = state.cartCards.findIndex((card) => card.id === action.payload);
+
+      if (state.cartCards[cardIndex].quantity > 1) {
+        state.cartCards[cardIndex].quantity -= 1;
+      }
+    },
+    setQuantityPlus(state, action: PayloadAction<number>) {
+      const cardIndex = state.cartCards.findIndex((card) => card.id === action.payload);
+
+      if (state.cartCards[cardIndex].quantity < 10) {
+        state.cartCards[cardIndex].quantity += 1;
+      }
+    },
   },
 });
 
-export const { setCartCards, setClearAllCart, setDeleteCard } = cartSlice.actions;
+export const {
+  setCartCards,
+  setClearAllCart,
+  setDeleteCard,
+  setQuantityMinus,
+  setQuantityPlus,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

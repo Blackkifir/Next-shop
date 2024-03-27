@@ -3,7 +3,12 @@ import { FaWindowClose } from 'react-icons/fa';
 import { useAppSelector } from '@/redux/hooks/actionsHook';
 import { RootState } from '@/redux/store';
 import { useDispatch } from 'react-redux';
-import { setClearAllCart, setDeleteCard } from '@/redux/slices/cartSlice';
+import {
+  setClearAllCart,
+  setDeleteCard,
+  setQuantityMinus,
+  setQuantityPlus,
+} from '@/redux/slices/cartSlice';
 import { ICard } from '@/redux/slices/interfaces/ICatalogCards';
 import styles from './AllCarts.module.scss';
 import CartCard from '../CartCard/CartCard';
@@ -20,6 +25,14 @@ export default function AllCarts() {
     dispatch(setDeleteCard(basket.id));
   };
 
+  const onClickCartMinus = (id: number) => {
+    dispatch(setQuantityMinus(id));
+  };
+
+  const onClickCartPlus = (id: number) => {
+    dispatch(setQuantityPlus(id));
+  };
+
   return (
     <div className={styles.allCartsContainer}>
       <h1 className={styles.allCartsTitle}>
@@ -33,14 +46,17 @@ export default function AllCarts() {
               ? <h1> &#11088; The cart is empty...</h1>
               : cartCards.map((obj) => (
                 <CartCard
-                  key={obj.id}
                   id={obj.id}
+                  key={obj.id}
                   title={obj.title}
                   price={obj.price}
                   card={obj}
                   cartName={obj.category.name}
                   cartImage={obj.category.image}
                   onClickDeleteCartCards={onClickDeleteCartCards}
+                  onClickCartMinus={onClickCartMinus}
+                  onClickCartPlus={onClickCartPlus}
+                  quantity={obj.quantity}
                 />
               ))}
           </div>

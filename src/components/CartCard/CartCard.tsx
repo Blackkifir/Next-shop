@@ -1,30 +1,19 @@
 import Image from 'next/image';
-import { useState } from 'react';
 import styles from './CartCard.module.scss';
 import { ICartCard } from './ICartCard';
 
 export default function CartCard({
+  id,
   title,
   price,
   card,
   cartName,
   cartImage,
   onClickDeleteCartCards,
+  onClickCartMinus,
+  onClickCartPlus,
+  quantity,
 }: ICartCard) {
-  const [isQuantity, setQuantity] = useState<number>(1);
-
-  const onClickCartMinus = () => {
-    if (isQuantity > 1) {
-      setQuantity(isQuantity - 1);
-    }
-  };
-
-  const onClickCartPlus = () => {
-    if (isQuantity < 10) {
-      setQuantity(isQuantity + 1);
-    }
-  };
-
   return (
     <div className={styles.cartCard}>
       <button
@@ -52,17 +41,17 @@ export default function CartCard({
           <p className={styles.cartCard_quantity_text}>Количество</p>
           <div className={styles.cartCard_quantity_details}>
             <button
-              onClick={onClickCartMinus}
+              onClick={() => onClickCartMinus(id)}
               type="button"
               className={styles.cartCard_quantity_details_minus}
             >
               -
             </button>
             <span className={styles.cartCard_quantity_details_counter}>
-              {isQuantity}
+              {quantity}
             </span>
             <button
-              onClick={onClickCartPlus}
+              onClick={() => onClickCartPlus(id)}
               type="button"
               className={styles.cartCard_quantity_details_plus}
             >

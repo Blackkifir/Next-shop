@@ -12,5 +12,6 @@ export interface ICard {
   description: string,
   images: string[],
   categoryImage: string;
-  category: { id: number, name: string, image: string }
+  category: { id: number, name: string, image: string },
+  quantity: number,
 }
