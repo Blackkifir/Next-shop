@@ -14,7 +14,11 @@ const cartSlice = createSlice({
       if (!state.cartCards) {
         state.cartCards = [];
       }
-      state.cartCards.push({ ...action.payload });
+      state.cartCards.push({
+        ...action.payload,
+        quantity: 1,
+        basePrice: action.payload.price,
+      });
     },
     setClearAllCart(state) {
       state.cartCards = [];
@@ -27,6 +31,7 @@ const cartSlice = createSlice({
 
       if (state.cartCards[cardIndex].quantity > 1) {
         state.cartCards[cardIndex].quantity -= 1;
+        state.cartCards[cardIndex].price -= state.cartCards[cardIndex].basePrice;
       }
     },
     setQuantityPlus(state, action: PayloadAction<number>) {
@@ -34,6 +39,7 @@ const cartSlice = createSlice({
 
       if (state.cartCards[cardIndex].quantity < 10) {
         state.cartCards[cardIndex].quantity += 1;
+        state.cartCards[cardIndex].price = state.cartCards[cardIndex].basePrice * state.cartCards[cardIndex].quantity;
       }
     },
   },

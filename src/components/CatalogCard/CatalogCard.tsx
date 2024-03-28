@@ -24,7 +24,7 @@ export default function CatalogItem({
   const onClickAddCart = (cart: ICard): void => {
     if (isCount < 1) {
       setCount(+1);
-      dispatch(setCartCards({ ...cart, quantity: 1 }));
+      dispatch(setCartCards({ ...cart }));
     }
 
     if (isCount > 1) {

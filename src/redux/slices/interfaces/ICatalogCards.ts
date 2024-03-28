@@ -14,4 +14,5 @@ export interface ICard {
   categoryImage: string;
   category: { id: number, name: string, image: string },
   quantity: number,
+  basePrice: number,
 }
