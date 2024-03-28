@@ -1,0 +1,48 @@
+@import '../../pages/styles/global/variables.scss';
+
+.searchContainer {
+  @include displayCenter();
+  margin-bottom: 50px;
+}
+
+
+.searchFlex {
+  position: relative;
+
+  &_inputSearch {
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    line-height: 20px;
+    padding: 5px 35px 5px 10px;
+    color: $darkBlue;
+    outline: 2px solid $darkBlue;
+  }
+  &_inputSearch:focus {
+    transition: all .1s;
+    outline: 2px solid $red;
+  }
+
+  &_clearSearch {
+    @include displayCenter();
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    bottom: 0;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &_icon {
+      width: 25px;
+      height: 25px;
+      color: $darkBlue;
+    }
+    &_icon:hover {
+      transition: all .2s;
+      color: $red;
+    }
+  }
+}
