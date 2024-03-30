@@ -1,8 +1,9 @@
 export interface ICatalogCards {
   items: ICard[],
+  searchValue: string,
   isLoading: boolean,
   isDisable: boolean,
-  error?: Error | null,
+  error?: null | Error,
 }
 
 export interface ICard {
