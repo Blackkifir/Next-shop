@@ -1,7 +1,8 @@
 import { RootState } from '@/redux/store';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { fetchGetCatalogItems } from '@/redux/slices/catalogSlice';
 import { useAppSelector, useThunkDispatch } from '@/redux/hooks/actionsHook';
+import { debounce } from 'ts-debounce';
 import Loader from '../Loader/Loader';
 import CatalogCard from '../CatalogCard/CatalogCard';
 import styles from './AllCatalogs.module.scss';
@@ -11,15 +12,13 @@ export default function AllCatalogs() {
   const dispatch = useThunkDispatch();
   const { items, searchValue, isLoading } = useAppSelector((state: RootState) => state.catalogSlice);
 
-  console.log(items);
+  const debouncedSearch = useCallback(debounce((str: string) => {
+    dispatch(fetchGetCatalogItems(str)).then(() => {}).catch(() => {});
+  }, 2000), [dispatch]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(fetchGetCatalogItems(searchValue));
-    };
-
-    fetchData().then(() => {}).catch(() => {});
-  }, [dispatch, searchValue]);
+    debouncedSearch(searchValue).then(() => {}).catch(() => {});
+  }, [searchValue, debouncedSearch]);
 
   return (
     <div>
