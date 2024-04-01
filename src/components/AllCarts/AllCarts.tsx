@@ -4,18 +4,24 @@ import { useAppSelector } from '@/redux/hooks/actionsHook';
 import { RootState } from '@/redux/store';
 import { useDispatch } from 'react-redux';
 import {
+  loadCartState,
   setClearAllCart,
   setDeleteCard,
   setQuantityMinus,
   setQuantityPlus,
 } from '@/redux/slices/cartSlice';
 import { ICard } from '@/redux/slices/interfaces/ICatalogCards';
+import { useEffect } from 'react';
 import styles from './AllCarts.module.scss';
 import CartCard from '../CartCard/CartCard';
 
 export default function AllCarts() {
   const dispatch = useDispatch();
   const { cartCards } = useAppSelector((state: RootState) => state.cartSlice);
+
+  useEffect(() => {
+    dispatch(loadCartState());
+  }, [dispatch]);
 
   const onClickClearAllCart = () => {
     dispatch(setClearAllCart());

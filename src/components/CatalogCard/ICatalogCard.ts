@@ -7,4 +7,6 @@ export interface ICatalogCard {
   categoryName: string,
   categoryImage: string,
   item: ICard,
+
+  onClickAddCart: (cart: ICard) => void;
 }

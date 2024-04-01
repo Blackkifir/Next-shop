@@ -30,7 +30,9 @@ export default function Search() {
         />
         <button
           onClick={onClickClearSearch}
-          className={styles.searchFlex_clearSearch}
+          className={searchValue.length === 0
+            ? styles.searchFlex_hiddenClearSearch
+            : styles.searchFlex_clearSearch}
           type="button"
           aria-label="clearSearch"
         >
