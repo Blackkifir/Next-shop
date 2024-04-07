@@ -21,7 +21,7 @@ export default function AllCatalogs() {
     if (items.length === 0 || searchValue) {
       dispatchThunk(fetchGetCatalogItems(str)).then(() => {}).catch(() => {});
     }
-  }, 1500), [dispatch]);
+  }, 1250), [dispatch]);
 
   useEffect(() => {
     debouncedSearch(searchValue).then(() => {}).catch(() => {});
